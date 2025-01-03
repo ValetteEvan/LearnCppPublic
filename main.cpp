@@ -42,6 +42,7 @@ std::ostream& operator<<(std::ostream& os,const Box<T>& box)
     return os;
 }
 
+//i love template
 template<typename... Args> 
 void printf(Args... args)
 {
