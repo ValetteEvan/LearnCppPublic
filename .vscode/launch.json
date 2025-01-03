@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "C++: Clang build and debug",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${workspaceFolder}/main",
+          "args": [],
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}",
+          "environment": [],
+          "externalConsole": true,
+          "MIMode": "lldb",
+          "setupCommands": [
+              {
+                  "description": "Enable pretty-printing for lldb",
+                  "text": "settings set target.debug-variables true",
+                  "ignoreFailures": true
+              }
+          ],
+          "preLaunchTask": "build with Clang"
+      }
+  ]
+}
