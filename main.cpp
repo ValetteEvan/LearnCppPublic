@@ -4,6 +4,7 @@
 
 #include "Singleton.hpp"
 #include "Factory.hpp"
+#include "Structural.hpp" 
 
 template<typename T>
 T add(T a,T b)
@@ -76,6 +77,12 @@ int main()
     auto rectangle = ShapeFactory::creatShape("Rectangle");
     circle->draw(); 
     rectangle->draw();
+
+    //Structural basic exemple
+    OldPrinter oldPrinter;
+    PrinterAdapter adapter(&oldPrinter);
+
+    adapter.print();
 
     return 0;
 }
