@@ -6,6 +6,7 @@
 #include "Factory.hpp"
 #include "Structural.hpp" 
 #include "Composite.hpp"
+#include "Behavioral.hpp" 
 
 template<typename T>
 T add(T a,T b)
@@ -98,6 +99,20 @@ int main()
     composite->add(leaf2);
 
     composite->operation();
+
+    //Behaviaral basic exemple
+    //Channel message
+    auto subject  = std::make_shared<Subject>();
+    //Create user and name
+    auto observer1 = std::make_shared<ConcreteObserver>("Observer1");
+    auto observer2 = std::make_shared<ConcreteObserver>("Observer2");
+
+    //Add user on channel
+    subject->addObserver(observer1);
+    subject->addObserver(observer2);
+
+    //Send message for all user
+    subject->notifyObservers(" Hello everyone");
 
     return 0;
 }
