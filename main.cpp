@@ -5,6 +5,7 @@
 #include "Singleton.hpp"
 #include "Factory.hpp"
 #include "Structural.hpp" 
+#include "Composite.hpp"
 
 template<typename T>
 T add(T a,T b)
@@ -81,8 +82,22 @@ int main()
     //Structural basic exemple
     OldPrinter oldPrinter;
     PrinterAdapter adapter(&oldPrinter);
-
     adapter.print();
+
+    //Composite basic exemple
+
+    //documents
+    auto leaf1 = std::make_shared<Leaf>();
+    auto leaf2 = std::make_shared<Leaf>();
+
+    //folder
+    auto composite = std::make_shared<Composite>();
+
+    //Add many documents on folder
+    composite->add(leaf1);
+    composite->add(leaf2);
+
+    composite->operation();
 
     return 0;
 }
