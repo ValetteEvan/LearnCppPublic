@@ -3,7 +3,9 @@
 class Singleton 
 {
     private:
+    //unique instance 
     static Singleton* instance; 
+    //private constructor
     Singleton() {}
 
     public:

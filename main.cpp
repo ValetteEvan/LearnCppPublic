@@ -1,7 +1,9 @@
 #include <iostream>
+#include <memory>
 #include <ostream>
 
 #include "Singleton.hpp"
+#include "Factory.hpp"
 
 template<typename T>
 T add(T a,T b)
@@ -69,7 +71,11 @@ int main()
     Singleton* singleton = Singleton::getInstance();
     singleton->showMessage();
 
-
+    //Factory basic exemple
+    auto circle = ShapeFactory::creatShape("Circle");
+    auto rectangle = ShapeFactory::creatShape("Rectangle");
+    circle->draw(); 
+    rectangle->draw();
 
     return 0;
 }
