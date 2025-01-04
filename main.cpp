@@ -1,6 +1,8 @@
 #include <iostream>
 #include <ostream>
 
+#include "Singleton.hpp"
+
 template<typename T>
 T add(T a,T b)
 {
@@ -50,7 +52,7 @@ void printf(Args... args)
 
 int main()
 {
-  Box<int> boxInt(5);
+  /* Box<int> boxInt(5);
   std::cout << boxInt.getValue() << std::endl;
   boxInt.printTypeOfValue();
 
@@ -61,7 +63,13 @@ int main()
   Box<std::string> boxString("Hello");
   std::cout << boxString.getValue() << std::endl;
 
-  printf(boxString,"-",boxFloat,"-",boxInt);
+  printf(boxString,"-",boxFloat,"-",boxInt);*/
+
+    //Singleton exemple basic 
+    Singleton* singleton = Singleton::getInstance();
+    singleton->showMessage();
+
+
 
     return 0;
 }
