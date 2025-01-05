@@ -2,73 +2,30 @@
 #include <memory>
 #include <ostream>
 
+#include "Template.hpp"
 #include "Singleton.hpp"
 #include "Factory.hpp"
 #include "Structural.hpp" 
 #include "Composite.hpp"
 #include "Behavioral.hpp" 
 
-template<typename T>
-T add(T a,T b)
-{
-    return a + b;
-}
-
-template<typename T>
-class Box 
-{
-    T value;
-    public:
-    Box(T _value) : value(_value) {} 
-    T getValue()const {return value;}
-};
-
-template<>
-class Box<int>
-{
-    int value;
-    public:
-    Box(int _value) : value(_value) {} 
-    int getValue()const {return value;}
-    void printTypeOfValue() {std::cout << "Integer" << std::endl;}
-};
-
-template<>
-class Box<float>
-{
-    float value;
-    public:
-    Box(float _value) : value(_value) {} 
-    float getValue()const {return value;}
-    void printTypeOfValue() {std::cout << "Float" << std::endl;}
-};
-template<typename T>
-std::ostream& operator<<(std::ostream& os,const Box<T>& box)
-{
-    os << box.getValue();
-    return os;
-}
-
-template<typename... Args> 
-void printf(Args... args)
-{
-    (std::cout << ... << args) << std::endl; 
-}
+#include "ClassLearn.hpp"
 
 int main()
 {
-  /* Box<int> boxInt(5);
-  std::cout << boxInt.getValue() << std::endl;
-  boxInt.printTypeOfValue();
+    //Test application template basic 
+    Box<int> boxInt(5);
+    std::cout << boxInt.getValue() << std::endl;
+    boxInt.printTypeOfValue();
 
-  Box<float> boxFloat(23.788);
-  std::cout << boxFloat.getValue() << std::endl;
-  boxFloat.printTypeOfValue();  
+    Box<float> boxFloat(23.788);
+    std::cout << boxFloat.getValue() << std::endl;
+    boxFloat.printTypeOfValue();  
 
-  Box<std::string> boxString("Hello");
-  std::cout << boxString.getValue() << std::endl;
+    Box<std::string> boxString("Hello");
+    std::cout << boxString.getValue() << std::endl;
 
-  printf(boxString,"-",boxFloat,"-",boxInt);*/
+    printf(boxString,"-",boxFloat,"-",boxInt);
 
     //Singleton exemple basic 
     Singleton* singleton = Singleton::getInstance();
@@ -113,6 +70,12 @@ int main()
 
     //Send message for all user
     subject->notifyObservers(" Hello everyone");
+
+    std::cout << "------------------" << std::endl;
+
+    Test::printOnConsole();
+    int a = Test::returnStaticValue();
+    std::cout << a << std::endl;
 
     return 0;
 }
