@@ -73,6 +73,7 @@ int main()
 
     std::cout << "------------------" << std::endl;
 
+    //Test on class 
     Test::printOnConsole();
     int a = Test::returnStaticValue();
     std::cout << a << std::endl;
