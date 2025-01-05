@@ -9,10 +9,10 @@
 #include "Composite.hpp"
 #include "Behavioral.hpp" 
 
+#include "ClassLearn.hpp"
 
 int main()
 {
-
     //Test application template basic 
     Box<int> boxInt(5);
     std::cout << boxInt.getValue() << std::endl;
@@ -70,6 +70,12 @@ int main()
 
     //Send message for all user
     subject->notifyObservers(" Hello everyone");
+
+    std::cout << "------------------" << std::endl;
+
+    Test::printOnConsole();
+    int a = Test::returnStaticValue();
+    std::cout << a << std::endl;
 
     return 0;
 }
